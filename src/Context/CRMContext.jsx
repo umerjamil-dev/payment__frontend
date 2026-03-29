@@ -12,8 +12,8 @@ export const CRMProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const [gateways, setGateways] = useState({
-        stripe1: { enabled: true, name: 'Stripe Business', pubKey: '' },
-        stripe2: { enabled: true, name: 'Stripe Personal', pubKey: '' },
+        stripe1: { enabled: true, name: 'Stripe Technologies', pubKey: '' },
+        stripe2: { enabled: true, name: 'Stripe Digital', pubKey: '' },
         paypal: { enabled: true, name: 'PayPal Official', email: '' }
     });
 
