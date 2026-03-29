@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Search, Filter, Download, CheckCircle, Copy, CheckCircle2 } from 'lucide-react';
+import { Plus, Search, Filter, Download, CheckCircle, Copy, CheckCircle2, CreditCard, Wallet, Banknote } from 'lucide-react';
 
 import { Card, CardHeader, CardContent } from '../../Components/UI/Card';
 import { Button } from '../../Components/UI/Button';
@@ -113,13 +113,14 @@ const InvoiceList = () => {
                                 <TableHead>Date</TableHead>
                                 <TableHead>Amount</TableHead>
                                 <TableHead>Status</TableHead>
+                                <TableHead>Payment Via</TableHead>
                                 <TableHead className="text-right">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             {currentInvoices.length === 0 ? (
                                 <TableRow>
-                                    <TableCell colSpan={6} className="text-center py-8 text-gray-500 italic">No invoices found matching your criteria.</TableCell>
+                                    <TableCell colSpan={7} className="text-center py-8 text-gray-500 italic">No invoices found matching your criteria.</TableCell>
                                 </TableRow>
                             ) : (
                                 currentInvoices.map((inv) => (
@@ -135,6 +136,30 @@ const InvoiceList = () => {
                                             }>
                                                 {inv.status}
                                             </Badge>
+                                        </TableCell>
+                                        <TableCell>
+                                            {(() => {
+                                                const method = inv.payment_method || inv.paymentMethod;
+                                                if (!method || inv.status !== 'Paid') {
+                                                    return <span className="text-gray-300 text-sm">—</span>;
+                                                }
+                                                const isPayPal = method.toLowerCase().includes('paypal');
+                                                const isStripe = method.toLowerCase().includes('stripe') || method.toLowerCase().includes('card');
+                                                const isManual = method.toLowerCase().includes('manual');
+                                                return (
+                                                    <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full ${
+                                                        isPayPal  ? 'bg-blue-50 text-blue-700' :
+                                                        isStripe  ? 'bg-indigo-50 text-indigo-700' :
+                                                        isManual  ? 'bg-gray-100 text-gray-600' :
+                                                                    'bg-emerald-50 text-emerald-700'
+                                                    }`}>
+                                                        {isPayPal  ? <Wallet className="w-3 h-3" /> :
+                                                         isStripe  ? <CreditCard className="w-3 h-3" /> :
+                                                                     <Banknote className="w-3 h-3" />}
+                                                        {method}
+                                                    </span>
+                                                );
+                                            })()}
                                         </TableCell>
                                         <TableCell className="text-right">
                                             <div className="flex items-center justify-end gap-2">

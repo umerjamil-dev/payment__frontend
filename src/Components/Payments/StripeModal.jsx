@@ -5,7 +5,7 @@ import { api } from '../../lib/api';
 import toast from 'react-hot-toast';
 import { useEffect, useState } from 'react';
 
-const StripeModal = ({ isOpen, onClose, amount, invoiceId, onPaymentSuccess, gateway = 'stripe1' }) => {
+const StripeModal = ({ isOpen, onClose, amount, invoiceId, onPaymentSuccess, gateway = 'stripe1', gatewayName = 'Stripe (Card)' }) => {
     if (!isOpen) return null;
 
     const stripe = useStripe();
@@ -49,7 +49,7 @@ const StripeModal = ({ isOpen, onClose, amount, invoiceId, onPaymentSuccess, gat
             setIsProcessing(false);
         } else if (paymentIntent.status === 'succeeded') {
             toast.success('Payment Received Successfully!');
-            onPaymentSuccess('Stripe (Card)');
+            onPaymentSuccess(gatewayName);
             onClose();
         }
     };

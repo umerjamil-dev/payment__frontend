@@ -907,6 +907,10 @@ const ClientPaymentView = () => {
             amount={total}
             invoiceId={invoice.id}
             gateway={activeStripeGateway}
+            gatewayName={activeStripeGateway === 'stripe1'
+              ? (gateways?.stripe1?.name || 'Stripe Technologies')
+              : (gateways?.stripe2?.name || 'Stripe Digital')
+            }
           />
         </Elements>
       )}
