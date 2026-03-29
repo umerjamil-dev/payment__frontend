@@ -332,13 +332,13 @@ const CreateInvoice = () => {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <GatewayToggle
                                     active={allowedGateways.stripe1}
-                                    label="Stripe Business"
+                                    label="Stripe Technologies"
                                     icon={<CreditCard className="w-5 h-5" />}
                                     onClick={() => setAllowedGateways(prev => ({ ...prev, stripe1: !prev.stripe1 }))}
                                 />
                                 <GatewayToggle
                                     active={allowedGateways.stripe2}
-                                    label="Stripe Personal"
+                                    label="Stripe Digital"
                                     icon={<CreditCard className="w-5 h-5" />}
                                     onClick={() => setAllowedGateways(prev => ({ ...prev, stripe2: !prev.stripe2 }))}
                                 />
