@@ -66,7 +66,7 @@ const LoginPage = () => {
 
                         <div className="text-center space-y-2">
                             <h1 className="text-4xl font-black tracking-tighter text-white uppercase italic">
-                                Nexus <span className="text-red-600">Terminal</span>
+                                Softile <span className="text-red-600">Terminal</span>
                             </h1>
                             <div className="h-1 w-12 bg-red-600 mx-auto rounded-full" />
                             <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.3em] mt-4">

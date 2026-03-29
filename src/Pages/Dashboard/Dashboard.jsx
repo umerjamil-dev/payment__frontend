@@ -34,7 +34,7 @@ const StatCard = ({ title, value, icon: Icon, trendValue, colorClass }) => (
 );
 
 const Dashboard = () => {
-    const { invoices, getDashboardStats } = useCRM();
+    const { invoices, getDashboardStats, activities } = useCRM();
     const stats = getDashboardStats();
 
     const recentInvoices = invoices.slice(0, 5);
@@ -166,7 +166,7 @@ const Dashboard = () => {
                         <CardTitle>Recent Activity</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                        {useCRM().activities.slice(0, 6).map((activity) => (
+                        {activities.slice(0, 6).map((activity) => (
                             <div key={activity.id} className="flex gap-4 items-start">
                                 <div className={`p-2 rounded-lg ${activity.type === 'payment' ? 'bg-emerald-50 text-emerald-600' :
                                         activity.type === 'invoice' ? 'bg-blue-50 text-blue-600' :
@@ -183,7 +183,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         ))}
-                        {useCRM().activities.length === 0 && (
+                        {activities.length === 0 && (
                             <div className="text-center py-8">
                                 <p className="text-sm text-gray-400 italic">No recent activities recorded.</p>
                             </div>

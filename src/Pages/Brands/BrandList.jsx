@@ -70,7 +70,7 @@ const BrandList = () => {
                                         className="w-full p-2 border rounded-lg"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        placeholder="e.g. Nexus Premium"
+                                        placeholder="e.g. Softile Premium"
                                     />
                                 </div>
                                 <div className="space-y-2">

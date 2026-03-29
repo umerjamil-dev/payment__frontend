@@ -557,7 +557,7 @@ const ClientPaymentView = () => {
     }
   };
 
-  const brand = brands?.find(b => b.id === invoice?.brand_id || b.id === invoice?.brandId) || brands?.[0] || { name: 'Nexus', color: '#5B4FE9' };
+  const brand = brands?.find(b => b.id === invoice?.brand_id || b.id === invoice?.brandId) || brands?.[0] || { name: 'Softile', color: '#5B4FE9' };
 
   /* ─── Loading ─────────────────────────────────────────────────────────── */
   if (isLoading) return (

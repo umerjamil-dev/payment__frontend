@@ -113,7 +113,7 @@ const CreateInvoice = () => {
                     throw new Error('Client email is empty or invalid in the database');
                 }
 
-                const brand = brands.find(b => String(b.id) === String(selectedBrandId)) || { name: 'Support', email: 'admin@nexus.com' };
+                const brand = brands.find(b => String(b.id) === String(selectedBrandId)) || { name: 'Support', email: 'admin@Softile.com' };
                 const brandName = brand.name || 'Our CRM';
                 const brandEmail = brand.email || `info@${brandName.toLowerCase().replace(/\s+/g, '')}.com`;
                 const displayId = (1010 + Number(newInvoice.id || 0));
@@ -485,7 +485,7 @@ const CreateInvoice = () => {
                             <div className="pt-4 flex flex-col gap-4">
                                 <div className="p-5 bg-slate-50 rounded-[1.5rem] border border-slate-100/50">
                                     <p className="text-[11px] text-slate-500 leading-relaxed font-medium italic font-serif">
-                                        "This instrument facilitates secure cross-border settlement via the Nexus proprietary infrastructure."
+                                        "This instrument facilitates secure cross-border settlement via the Softile proprietary infrastructure."
                                     </p>
                                 </div>
                                 <div className="flex items-center gap-2 px-1">
@@ -503,7 +503,7 @@ const CreateInvoice = () => {
                             </div>
                             <div>
                                 <p className="text-xs font-bold text-slate-900 tracking-tight">Enterprise Draft</p>
-                                <p className="text-[10px] text-slate-400 font-medium">Auto-saved to Nexus Cloud</p>
+                                <p className="text-[10px] text-slate-400 font-medium">Auto-saved to Softile Cloud</p>
                             </div>
                         </div>
                         <Building2 className="w-5 h-5 text-red-500" />

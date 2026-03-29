@@ -19,9 +19,9 @@ export const Sidebar = ({ isOpen, onClose }) => {
             <div className="p-6 flex items-center justify-between border-b border-white/5 flex-shrink-0">
                 <h1 className="text-xl font-bold flex items-center gap-3">
                     <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center font-black shadow-lg shadow-primary/20">
-                        N
+                        S
                     </div>
-                    <span>Nexus CRM</span>
+                    <span>Softile CRM</span>
                 </h1>
                 <button
                     onClick={onClose}
