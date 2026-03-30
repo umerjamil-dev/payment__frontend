@@ -918,7 +918,7 @@ const ClientPaymentView = () => {
       {/* PayPal Modal Integration */}
       {isPayPalOpen && (
         <PayPalScriptProvider options={{ 
-          "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID || "AXz9Hn0squo-H4I2DSOgKWcy2GVljpFTsWsXHbr9GGZa1Mh7EX_qpOp04fCq_fY-pM7WMskPA2vHXv9j",
+          "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID || "AVOASK27fi5j44bFu4S9OD_7TTsMFtCYVD__q9hWFVvahJdvHGB1o41hVY9OiJZnrfVrGpcb-HCIVoq9",
           currency: "USD",
           intent: "capture",
           components: "buttons"
