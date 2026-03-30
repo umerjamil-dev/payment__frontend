@@ -29,8 +29,8 @@ import {
   BadgeCheck
 } from 'lucide-react';
 
-const stripePromise1 = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_51S40Ud49m2ZODwm0pbinnBi8mGnlJSE6rGNiB1eF8PzZMuXfvFTQvFEktxVtN8nZXN3bp2py5srB0uDiFNMOWqYs00q4Aa50C9');
-const stripePromise2 = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2 || 'pk_test_51T1a9NLBjv50VGOiRHJsSZ8d1j03o8mpIRS7g3IgxnmrbK1nbWUfTwTLbQvJRsqRoKGCpRqP4JbgddDSrrRDlHoZ00TZeWxXaY');
+const stripePromise1 = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_live_51S40UO2zqUuFjAXr7tilzUEgUuBAnm4DT3yXMAnCXU8hdcaDubsJ8h9DfqsKpK8t1SUUu0cFUF0pQac3CjyKQriR00TDZUQfDI');
+const stripePromise2 = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2 || 'pk_live_51T1a9NLBjv50VGOiMWZO1KtCQghXTpQt3CidwFhV7n3Z0P97mwujlrCcHSJc4l131NmOOu1jkP5lvktZDqx5EVZE00VCNXt9Kh');
 
 
 /* ─── Inject styles once ─────────────────────────────────────────────────── */
