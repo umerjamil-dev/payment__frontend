@@ -313,7 +313,8 @@ export const CRMProvider = ({ children }) => {
         const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const monthlyRevenue = Array.from({ length: 6 }).map((_, i) => {
             const d = new Date();
-            d.setMonth(d.getMonth() - (5 - i));
+            d.setDate(1); // Set to 1st to prevent overflow (e.g., Feb 31 -> Mar 3)
+            d.setMonth(new Date().getMonth() - (5 - i));
             const m = d.getMonth();
             const y = d.getFullYear();
             return {
