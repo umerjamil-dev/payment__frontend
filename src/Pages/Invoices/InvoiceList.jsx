@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Search, Filter, Download, CheckCircle, Copy, CheckCircle2, CreditCard, Wallet, Banknote } from 'lucide-react';
+import { Plus, Search, Filter, Download, CheckCircle, Copy, CheckCircle2, CreditCard, Wallet, Banknote, Trash2 } from 'lucide-react';
 
 import { Card, CardHeader, CardContent } from '../../Components/UI/Card';
 import { Button } from '../../Components/UI/Button';
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const InvoiceList = () => {
-    const { invoices, updateInvoiceStatus } = useCRM();
+    const { invoices, updateInvoiceStatus, deleteInvoice } = useCRM();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -184,6 +184,19 @@ const InvoiceList = () => {
                                                         </Button>
                                                     </>
                                                 )}
+                                                <Button
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    className="h-8 w-8 p-0 text-red-500 hover:bg-red-50"
+                                                    title="Delete Invoice"
+                                                    onClick={() => {
+                                                        if (window.confirm('Are you sure you want to delete this invoice? This action cannot be undone.')) {
+                                                            deleteInvoice(inv.id);
+                                                        }
+                                                    }}
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </Button>
                                             </div>
                                         </TableCell>
                                     </TableRow>

@@ -149,6 +149,17 @@ export const CRMProvider = ({ children }) => {
         toast.success('Brand deleted');
     };
 
+    const deleteInvoice = async (id) => {
+        const { error } = await insforge.database.from('invoices').delete().match({ id });
+        if (error) {
+            console.error('Delete Error:', error);
+            toast.error('Delete failed');
+            return;
+        }
+        setInvoices(prev => prev.filter(inv => String(inv.id) !== String(id)));
+        toast.success('Invoice deleted');
+    };
+
     const updateGateways = async (newGateways) => {
         setGateways(newGateways);
         const { error } = await insforge.database.from('configurations').update({ value: newGateways }).match({ key: 'gateways' });
@@ -373,6 +384,7 @@ export const CRMProvider = ({ children }) => {
             updateGateways,
             addInvoice,
             updateInvoiceStatus,
+            deleteInvoice,
             getDashboardStats,
             activities,
             addActivity

@@ -805,7 +805,7 @@ const ClientPaymentView = () => {
                         <div className="inv-gateway-icon"><CreditCard size={18} color="#fff" /></div>
                         <div style={{ textAlign: 'left' }}>
                           <div className="inv-gateway-method">Pay with Card</div>
-                          <div className="inv-gateway-name">{gateways?.stripe1?.name || 'Stripe 1'}</div>
+                          <div className="inv-gateway-name">Payment with Stripe</div>
                         </div>
                       </div>
                       <ArrowRight size={16} className="inv-gateway-arrow" />
@@ -817,7 +817,7 @@ const ClientPaymentView = () => {
                         <div className="inv-gateway-icon"><CreditCard size={18} color="#fff" /></div>
                         <div style={{ textAlign: 'left' }}>
                           <div className="inv-gateway-method">Pay with Card</div>
-                          <div className="inv-gateway-name">{gateways?.stripe2?.name || 'Stripe Personal'}</div>
+                          <div className="inv-gateway-name">Payment with Stripe</div>
                         </div>
                       </div>
                       <ArrowRight size={16} className="inv-gateway-arrow" />
@@ -907,10 +907,7 @@ const ClientPaymentView = () => {
             amount={total}
             invoiceId={invoice.id}
             gateway={activeStripeGateway}
-            gatewayName={activeStripeGateway === 'stripe1'
-              ? (gateways?.stripe1?.name || 'Stripe Technologies')
-              : (gateways?.stripe2?.name || 'Stripe Digital')
-            }
+            gatewayName="Payment with Stripe"
           />
         </Elements>
       )}
