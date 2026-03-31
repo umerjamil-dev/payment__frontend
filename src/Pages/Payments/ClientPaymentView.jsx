@@ -573,17 +573,8 @@ const ClientPaymentView = () => {
   if (!invoice) return (
     <div className="inv-root">
       <InjectStyles />
-      <div className="inv-notfound">
-        <div className="inv-notfound-card">
-          <div className="inv-notfound-icon"><AlertCircle size={32} /></div>
-          <h2 className="inv-notfound-title">Invoice Not Found</h2>
-          <p className="inv-notfound-desc">
-            This invoice could not be located. It may have been archived or the link may be incorrect.
-          </p>
-          {/* <button className="inv-btn inv-btn-dark" style={{ width: '100%', justifyContent: 'center', padding: '14px' }} onClick={() => navigate('/')}>
-            Return Home
-          </button> */}
-        </div>
+      <div className="inv-loading">
+        <div className="inv-spinner" />
       </div>
     </div>
   );

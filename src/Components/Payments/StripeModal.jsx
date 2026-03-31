@@ -12,6 +12,8 @@ const StripeModal = ({ isOpen, onClose, amount, invoiceId, onPaymentSuccess, gat
     const elements = useElements();
     const [isProcessing, setIsProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
+    const [billingName, setBillingName] = useState('');
+    const [postalCode, setPostalCode] = useState('');
 
     useEffect(() => {
         const fetchIntent = async () => {
@@ -41,6 +43,12 @@ const StripeModal = ({ isOpen, onClose, amount, invoiceId, onPaymentSuccess, gat
         const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardNumberElement),
+                billing_details: {
+                    name: billingName,
+                    address: {
+                        postal_code: postalCode,
+                    }
+                }
             },
         });
 
@@ -104,6 +112,20 @@ const StripeModal = ({ isOpen, onClose, amount, invoiceId, onPaymentSuccess, gat
 
                     <form onSubmit={handleStripePayment} className="space-y-5 text-black">
                         <div className="space-y-1.5">
+                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Cardholder Name</label>
+                            <div className="p-4 border border-slate-200 rounded-xl bg-white focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
+                                <input 
+                                    type="text" 
+                                    value={billingName} 
+                                    onChange={(e) => setBillingName(e.target.value)}
+                                    placeholder="John Doe"
+                                    className="w-full bg-transparent focus:outline-none text-base text-gray-900 placeholder:text-gray-400"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div className="space-y-1.5">
                             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Card Number</label>
                             <div className="p-4 border border-slate-200 rounded-xl bg-white focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
                                 <CardNumberElement options={elementOptions} />
@@ -122,6 +144,20 @@ const StripeModal = ({ isOpen, onClose, amount, invoiceId, onPaymentSuccess, gat
                                 <div className="p-4 border border-slate-200 rounded-xl bg-white focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
                                     <CardCvcElement options={elementOptions} />
                                 </div>
+                            </div>
+                        </div>
+
+                        <div className="space-y-1.5">
+                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Postal / Zip Code</label>
+                            <div className="p-4 border border-slate-200 rounded-xl bg-white focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
+                                <input 
+                                    type="text" 
+                                    value={postalCode} 
+                                    onChange={(e) => setPostalCode(e.target.value)}
+                                    placeholder="10001"
+                                    className="w-full bg-transparent focus:outline-none text-base text-gray-900 placeholder:text-gray-400"
+                                    required
+                                />
                             </div>
                         </div>
 
